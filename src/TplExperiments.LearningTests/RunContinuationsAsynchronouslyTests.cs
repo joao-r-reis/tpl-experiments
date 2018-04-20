@@ -1,4 +1,4 @@
-namespace TplExperiments_MsTest
+namespace TplExperiments.LearningTests
 {
     using System.Collections.Concurrent;
     using System.Collections.Generic;
@@ -6,8 +6,11 @@ namespace TplExperiments_MsTest
     using System.Threading.Tasks;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    /// <summary>
+    /// Test TaskCreationOptions.RunContinuationsAsynchronously flag
+    /// </summary>
     [TestClass]
-    public class UnitTest1
+    public class RunContinuationsAsynchronouslyTests
     {
         [TestMethod]
         public async Task Tcs_RunContinuationsAsync_ContinuationsExecutedOnSingleThread()

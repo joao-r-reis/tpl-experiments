@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91508671-5E29-42AD-9BD1-EDEDC1C4B9D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TplExperiments", "src\TplExperiments\TplExperiments.csproj", "{F818E86C-1EAE-4132-B11E-21114F10EAE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TplExperiments.Benchmarks", "src\TplExperiments\TplExperiments.Benchmarks.csproj", "{F818E86C-1EAE-4132-B11E-21114F10EAE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TplExperiments-MsTest", "src\TplExperiments-MsTest\TplExperiments-MsTest.csproj", "{FC954B73-6E44-4196-B7B7-799A17074DAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TplExperiments.LearningTests", "src\TplExperiments-MsTest\TplExperiments.LearningTests.csproj", "{FC954B73-6E44-4196-B7B7-799A17074DAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -261,4 +261,4 @@ paket-files/
 __pycache__/
 *.pyc
 
-src/TplExperiments/BenchmarkDotNet.Artifacts/
+**/BenchmarkDotNet.Artifacts/
