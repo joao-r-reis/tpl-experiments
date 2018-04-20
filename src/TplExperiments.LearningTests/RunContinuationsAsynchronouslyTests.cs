@@ -54,11 +54,23 @@ namespace TplExperiments.LearningTests
             strings.Add(System.Environment.CurrentManagedThreadId);
         }
 
-        // TODO:
-        // https://blogs.msdn.microsoft.com/pfxteam/2011/10/24/task-run-vs-task-factory-startnew/
-        [TestMethod]
-        public void TestMethod1()
+        /*
+         * https://referencesource.microsoft.com/#mscorlib/system/threading/Tasks/Task.cs,26835bc3d03bdcbb
+        public void Invoke(Task completingTask)
         {
+            // Check the current stack guard.  If we're ok to inline,
+            // process the task, and reset the guard when we're done.
+            var sg = Task.CurrentStackGuard;
+            if (sg.TryBeginInliningScope())
+            {
+                try { InvokeCore(completingTask); }
+                finally { sg.EndInliningScope(); }
+            }
+            // Otherwise, we're too deep on the stack, and
+            // we shouldn't run the continuation chain here, so queue a work
+            // item to call back here to Invoke asynchronously.
+            else InvokeCoreAsync(completingTask);
         }
+         */
     }
 }
