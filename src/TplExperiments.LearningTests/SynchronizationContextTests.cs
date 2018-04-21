@@ -6,7 +6,7 @@ namespace TplExperiments.LearningTests
     /// Tests with ConfigureAwait()
     /// </summary>
     [TestClass]
-    public class ConfigureAwaitTests
+    public class SynchronizationContextTests
     {
     }
 }
