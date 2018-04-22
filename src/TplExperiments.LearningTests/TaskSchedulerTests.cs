@@ -13,22 +13,22 @@ namespace TplExperiments.LearningTests
         [TestMethod]
         public async Task AsyncMethodWithExclusiveScheduler_NoConfigureAwait_BlocksOnResult()
         {
+            //Arrange
             var ts = new ConcurrentExclusiveSchedulerPair();
 
+            //Act
             var actTask = Task.Factory.StartNew(() =>
-            {
-                //Arrange
+                {
+                    var delayTask = DelayAsync();
 
+                    var output = delayTask.Result; // deadlock here!!
 
-                //Act
+                }, 
+                default(CancellationToken), 
+                TaskCreationOptions.DenyChildAttach, 
+                ts.ExclusiveScheduler);
 
-                var delayTask = DelayAsync();
-
-                var output = delayTask.Result; // deadlock here!!
-
-                //Assert
-            }, default(CancellationToken), TaskCreationOptions.DenyChildAttach, ts.ExclusiveScheduler);
-
+            //Assert
             var finishedTask = await Task.WhenAny(actTask, Task.Delay(5000));
             Assert.AreNotSame(actTask, finishedTask);
         }
@@ -42,22 +42,21 @@ namespace TplExperiments.LearningTests
         [TestMethod]
         public async Task AsyncMethodWithExclusiveScheduler_ConfigureAwaitFalse_DoesntBlockOnResult()
         {
+            //Arrange
             var ts = new ConcurrentExclusiveSchedulerPair();
 
+            //Act
             var actTask = Task.Factory.StartNew(() =>
-            {
-                //Arrange
+                {
+                    var delayTask = DelayAsyncWithConfigureAwaitFalse();
 
+                    var output = delayTask.Result;
+                }, 
+                default(CancellationToken), 
+                TaskCreationOptions.DenyChildAttach, 
+                ts.ExclusiveScheduler);
 
-                //Act
-
-                var delayTask = DelayAsyncWithConfigureAwaitFalse();
-
-                var output = delayTask.Result;
-
-                //Assert
-            }, default(CancellationToken), TaskCreationOptions.DenyChildAttach, ts.ExclusiveScheduler);
-
+            //Assert
             var finishedTask = await Task.WhenAny(actTask, Task.Delay(5000));
             Assert.AreSame(actTask, finishedTask);
         }
