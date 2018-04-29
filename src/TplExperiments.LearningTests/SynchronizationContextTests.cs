@@ -61,7 +61,7 @@ namespace TplExperiments.LearningTests
 
         public static async Task<int> DelayAsync()
         {
-            await Task.Delay(2000);
+            await Task.Delay(1);
             return 0;
         }
 
@@ -93,7 +93,7 @@ namespace TplExperiments.LearningTests
 
         public static async Task<int> DelayAsyncWithConfigureAwaitFalse()
         {
-            await Task.Delay(2000).ConfigureAwait(false);
+            await Task.Delay(1).ConfigureAwait(false);
             return 0;
         }
     }
