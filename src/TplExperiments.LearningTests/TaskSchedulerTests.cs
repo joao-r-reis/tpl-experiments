@@ -6,6 +6,7 @@ namespace TplExperiments.LearningTests
 
     /// <summary>
     /// Tests with TaskSchedulers
+    /// https://blog.stephencleary.com/2012/08/async-and-scheduled-concurrency.html
     /// </summary>
     [TestClass]
     public class TaskSchedulerTests
