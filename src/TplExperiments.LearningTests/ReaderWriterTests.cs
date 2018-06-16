@@ -18,7 +18,7 @@
     public class ReaderWriterTests
     {
         [TestMethod]
-        public async Task StartNew_SynchronousReadersAndWritersWithConcurrentExclusiveScheduler_WritersRunExclusivelyAndReadersRunConcurrently()
+        public async Task SynchronousReadersAndWriters_WritersRunExclusivelyAndReadersRunConcurrently()
         {
             //Arrange
             var rand = new Random();
@@ -70,7 +70,7 @@
         }
         
         [TestMethod]
-        public async Task StartNew_AsynchronousReadersAndSynchronousWritersWithConcurrentExclusiveScheduler_ReadersAreInterweavedWithWritersBeforeCompletingBuWritersRunExclusively()
+        public async Task AsynchronousReadersAndSynchronousWriters_ReadersAreInterweavedWithWritersBeforeCompletingButWritersRunExclusively()
         {
             //Arrange
             var rand = new Random();
@@ -137,7 +137,7 @@
         }
         
         [TestMethod]
-        public async Task StartNew_AsynchronousReadersAndWritersWithConcurrentExclusiveScheduler_ReadersAreInterweavedWithWritersBeforeCompletingAndWritersDontRunExclusivelyUntilCompletion()
+        public async Task AsynchronousReadersAndWriters_BothReadersAndWritersAreInterweavedBeforeCompleting()
         {
             //Arrange
             var rand = new Random();
